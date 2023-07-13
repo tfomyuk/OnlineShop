@@ -4,9 +4,10 @@ INSERT INTO roles(id, name) values
 
 INSERT INTO users (id, login, password)
 VALUES
---admin@admin.com 123456
+--admin 123456
+--user 123456
 ('e95c01cc-bdb3-42ae-a57d-d71d6b1f56ca','admin','$2a$12$gwyWkPhNWYHDUiE.Ylwh2OxlBWL6hJXcKP7iu7mEhCYDiQNXdRQ/y'),
-('e95c01cc-bdb3-42ae-a57d-d71d6b1f56cb','user', '$2a$10$DDaJSSI6Kc.kWthxggHl6ObfcwBpQkJuhIpZ3sXSKlKrQlYGKXj4C');
+('e95c01cc-bdb3-42ae-a57d-d71d6b1f56cb','user', '$2a$12$gwyWkPhNWYHDUiE.Ylwh2OxlBWL6hJXcKP7iu7mEhCYDiQNXdRQ/y');
 
 
 INSERT INTO user_roles (role_id, user_id)
