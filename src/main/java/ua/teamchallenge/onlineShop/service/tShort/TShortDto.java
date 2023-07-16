@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ua.teamchallenge.onlineShop.service.Product;
-import ua.teamchallenge.onlineShop.service.Size;
 
 import java.util.UUID;
 
