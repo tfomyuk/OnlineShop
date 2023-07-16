@@ -49,6 +49,14 @@ tasks.register("bootRunProd") {
 	finalizedBy("bootRun")
 }
 
+jar {
+	manifest {
+		attributes(
+				'Main-Class': 'OnlineShopApplication'
+		)
+	}
+}
+
 configurations.all {
 	exclude module: 'slf4j-simple'
 }
