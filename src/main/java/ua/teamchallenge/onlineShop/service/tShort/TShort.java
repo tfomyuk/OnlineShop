@@ -5,7 +5,6 @@ import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import ua.teamchallenge.onlineShop.service.Product;
-import ua.teamchallenge.onlineShop.service.Size;
 
 import java.util.UUID;
 /*
@@ -64,8 +63,8 @@ public class TShort implements Product {
 
     @Getter
     @Column(name = "quantity", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private int quantity;
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String quantity;
 
     @Getter
     @Column(name = "temperature", nullable = false)

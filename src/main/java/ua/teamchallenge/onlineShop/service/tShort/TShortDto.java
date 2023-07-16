@@ -33,7 +33,7 @@ public class TShortDto implements Product {
     private int density;
     private String style;
     private String size;
-    private int quantity;
+    private String quantity;
     private int temperature;
     private String color;
     private String image;
