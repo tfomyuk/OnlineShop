@@ -35,7 +35,7 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @GetMapping("/get/all")
-    @Operation(summary = "Retrieve Cup list", description = "Find cups in DB")
+    @Operation(summary = "Retrieve Cup list", description = "Find Cups in DB")
     public ResponseEntity<?> getAll() {
         try {
             List<CupDto> cupList = service.findAll();
@@ -72,7 +72,7 @@ public class CupController implements CrudController<CupDto> {
             CupDto createdCup = service.create(cupDto);
             return ResponseEntity.ok(createdCup);
         } catch (Exception e) {
-            System.err.println("cup not saved");
+            System.err.println("Cup not saved");
             return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
