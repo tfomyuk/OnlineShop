@@ -53,8 +53,8 @@ public class TShortController implements CrudController<TShortDto> {
             @Parameter(name = "id", description = "T-Short identifier", example = "fcf12a8d-91e9-4bb6-b60b-53d6d97a9f44")
                     UUID id) {
         try {
-            TShortDto shopperDto = service.findById(id);
-            return ResponseEntity.ok(shopperDto);
+            TShortDto tShortDto = service.findById(id);
+            return ResponseEntity.ok(tShortDto);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());
         }
@@ -67,10 +67,10 @@ public class TShortController implements CrudController<TShortDto> {
             @RequestBody
             @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "T-Short to add", required = true,
                     content = @Content(schema=@Schema(implementation = TShortDto.class)))
-                    TShortDto shopperDto) {
+                    TShortDto tShortDto) {
         try {
-            TShortDto createdTShort = service.create(shopperDto);
-            return ResponseEntity.ok(createdTShort);
+            TShortDto createdTShortDto = service.create(tShortDto);
+            return ResponseEntity.ok(createdTShortDto);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());
         }
@@ -83,10 +83,10 @@ public class TShortController implements CrudController<TShortDto> {
             @RequestBody
             @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "T-Short to update", required = true,
                     content = @Content(schema=@Schema(implementation = TShortDto.class)))
-                    TShortDto shopperDto) {
+                    TShortDto tShortDto) {
         try {
-            TShortDto updatedCup = service.create(shopperDto);
-            return ResponseEntity.ok(updatedCup);
+            TShortDto updatedTShortDto = service.create(tShortDto);
+            return ResponseEntity.ok(updatedTShortDto);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());
         }
@@ -99,9 +99,9 @@ public class TShortController implements CrudController<TShortDto> {
             @RequestBody
             @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "T-Short to remove", required = true,
                     content = @Content(schema=@Schema(implementation = TShortDto.class)))
-                    TShortDto shopperDto) {
+                    TShortDto tShortDto) {
         try {
-            service.delete(shopperDto);
+            service.delete(tShortDto);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());
