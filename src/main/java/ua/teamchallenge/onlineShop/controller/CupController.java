@@ -6,9 +6,9 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ua.teamchallenge.onlineShop.service.ResponseEntityHandler;
 import ua.teamchallenge.onlineShop.service.cup.CupDto;
 import ua.teamchallenge.onlineShop.service.cup.CupService;
 
@@ -31,6 +31,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping("/api/cup")
 public class CupController implements CrudController<CupDto> {
     private final CupService service;
+    private final ResponseEntityHandler entityHandler;
 
     @Override
     @GetMapping("/get/all")
@@ -40,7 +41,7 @@ public class CupController implements CrudController<CupDto> {
             List<CupDto> cupList = service.findAll();
             return ResponseEntity.ok(cupList);
         } catch (Exception e) {
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -55,7 +56,7 @@ public class CupController implements CrudController<CupDto> {
             CupDto cup = service.findById(id);
             return ResponseEntity.ok(cup);
         } catch (Exception e) {
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -72,7 +73,7 @@ public class CupController implements CrudController<CupDto> {
             return ResponseEntity.ok(createdCup);
         } catch (Exception e) {
             System.err.println("cup not saved");
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -88,7 +89,7 @@ public class CupController implements CrudController<CupDto> {
             CupDto updatedCup = service.create(cupDto);
             return ResponseEntity.ok(updatedCup);
         } catch (Exception e) {
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -104,7 +105,7 @@ public class CupController implements CrudController<CupDto> {
             service.delete(cupDto);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -119,7 +120,7 @@ public class CupController implements CrudController<CupDto> {
             service.deleteById(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            return responseEntityNotFound(e.getMessage());
+            return entityHandler.responseEntityNotFound(e.getMessage());
         }
     }
 
@@ -129,10 +130,5 @@ public class CupController implements CrudController<CupDto> {
     public ResponseEntity<?> deleteAll() {
         service.deleteAll();
         return ResponseEntity.ok().build();
-    }
-
-    private ResponseEntity<?> responseEntityNotFound(String exception) {
-        return new ResponseEntity<>(new AppError(HttpStatus.NOT_FOUND.value(), exception),
-                HttpStatus.NOT_FOUND);
     }
 }
