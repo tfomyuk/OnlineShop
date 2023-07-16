@@ -26,7 +26,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
         allowedHeaders = {"x-requested-with", "origin", "content-type", "accept"},
         origins = "*"
 )
-@Tag(name = "Cups Service",
+@Tag(name = "Cup Service",
         description = "Provide crud operations for Cups")
 @RequestMapping("/api/cup")
 public class CupController implements CrudController<CupDto> {
