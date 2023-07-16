@@ -20,6 +20,7 @@ import java.util.UUID;
 | String			 | material(матеріал) 		  	  |	Кераміка													|
 | int				 | capacity(об'єм)	 		  	  |	330 мл														|
 | int			     | diameter(діаметер) 		  	  |	8 см														|
+| String 			 | image(фото)					  |	http:\\img.server.com\some-image.jpg						|
 | String 		     | description(детальний опис)	  |	Детальний опис											    |
 ---------------------------------------------------------------------------------------------------------------------
 */
@@ -37,5 +38,6 @@ public class CupDto implements Product {
     private String material;
     private int capacity;
     private int diameter;
+    private String image;
     private String description;
 }

@@ -23,6 +23,7 @@ import java.util.UUID;
 | String			 | material(матеріал) 		  	  |	Кераміка													|
 | int				 | capacity(об'єм)	 		  	  |	330 мл														|
 | int			     | diameter(діаметер) 		  	  |	8 см														|
+| String 			 | image(фото)					  |	http:\\img.server.com\some-image.jpg						|
 | String 		     | description(детальний опис)	  |	Детальний опис											    |
 ---------------------------------------------------------------------------------------------------------------------
 */
@@ -83,6 +84,11 @@ public class Cup implements Product {
     @Column(name = "diameter", nullable = false)
     @JdbcTypeCode(SqlTypes.INTEGER)
     private int diameter;
+
+    @Getter
+    @Column(name = "image", nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String image;
 
     @Getter
     @Column(name = "description", nullable = false)
