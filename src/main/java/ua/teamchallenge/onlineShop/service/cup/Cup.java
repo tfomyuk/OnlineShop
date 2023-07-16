@@ -42,8 +42,8 @@ public class Cup implements Product {
 
     @Getter
     @Column(name = "prize", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private int prize;
+    @JdbcTypeCode(SqlTypes.DOUBLE)
+    private double prize;
 
     @Getter
     @Column(name = "type", nullable = false)

@@ -38,8 +38,8 @@ public class TShort implements Product {
 
     @Getter
     @Column(name = "prize", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private int prize;
+    @JdbcTypeCode(SqlTypes.DOUBLE)
+    private double prize;
 
     @Getter
     @Column(name = "material", nullable = false)

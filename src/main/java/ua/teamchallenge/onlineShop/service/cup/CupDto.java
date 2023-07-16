@@ -29,7 +29,7 @@ import java.util.UUID;
 @Data
 public class CupDto implements Product {
     private UUID id;
-    private int prize;
+    private double prize;
     private String type;
     private String kind;
     private String color;

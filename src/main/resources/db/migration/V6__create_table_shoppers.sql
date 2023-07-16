@@ -1,6 +1,6 @@
 CREATE TABLE shoppers (
     id              UUID            NOT NULL PRIMARY KEY,
-    prize           INT,
+    prize           DOUBLE,
     size            VARCHAR(255),
     textile         VARCHAR(255),
     handles_length  INT,

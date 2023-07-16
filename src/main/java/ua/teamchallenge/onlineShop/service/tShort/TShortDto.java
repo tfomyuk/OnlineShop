@@ -28,7 +28,7 @@ import java.util.UUID;
 @Data
 public class TShortDto implements Product {
     private UUID id;
-    private int prize;
+    private double prize;
     private String material;
     private int density;
     private String style;

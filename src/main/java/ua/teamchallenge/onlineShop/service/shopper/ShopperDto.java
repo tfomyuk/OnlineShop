@@ -25,7 +25,7 @@ import java.util.UUID;
 @Data
 public class ShopperDto implements Product {
     private UUID id;
-    private int prize;
+    private double prize;
     private String size;
     private String textile;
     private int handles_length;

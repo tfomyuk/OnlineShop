@@ -39,8 +39,8 @@ public class Shopper implements Product {
 
     @Getter
     @Column(name = "prize", nullable = false)
-    @JdbcTypeCode(SqlTypes.INTEGER)
-    private int prize;
+    @JdbcTypeCode(SqlTypes.DOUBLE)
+    private double prize;
 
     @Getter
     @Column(name = "size", nullable = false)

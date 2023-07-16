@@ -1,6 +1,6 @@
 CREATE TABLE tshorts (
     id          UUID            NOT NULL PRIMARY KEY,
-    prize       INT,
+    prize       DOUBLE,
     material    VARCHAR(255),
     density     INT,
     style       VARCHAR(255),

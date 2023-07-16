@@ -1,6 +1,6 @@
 CREATE TABLE cups (
     id          UUID            NOT NULL PRIMARY KEY,
-    prize       INT,
+    prize       DOUBLE,
     type        VARCHAR(255),
     kind        VARCHAR(255),
     color       VARCHAR(255),
