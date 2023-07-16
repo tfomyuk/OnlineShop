@@ -49,7 +49,14 @@ tasks.register("bootRunProd") {
 	finalizedBy("bootRun")
 }
 
+configurations.all {
+	exclude module: 'slf4j-simple'
+}
+
+java {
+	withSourcesJar()
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
