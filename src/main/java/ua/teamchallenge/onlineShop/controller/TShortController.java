@@ -85,7 +85,7 @@ public class TShortController implements CrudController<TShortDto> {
                     content = @Content(schema=@Schema(implementation = TShortDto.class)))
                     TShortDto tShortDto) {
         try {
-            TShortDto updatedTShortDto = service.create(tShortDto);
+            TShortDto updatedTShortDto = service.update(tShortDto);
             return ResponseEntity.ok(updatedTShortDto);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());

@@ -85,7 +85,7 @@ public class ShopperController implements CrudController<ShopperDto> {
                     content = @Content(schema=@Schema(implementation = ShopperDto.class)))
                     ShopperDto shopperDto) {
         try {
-            ShopperDto updatedShopper = service.create(shopperDto);
+            ShopperDto updatedShopper = service.update(shopperDto);
             return ResponseEntity.ok(updatedShopper);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());

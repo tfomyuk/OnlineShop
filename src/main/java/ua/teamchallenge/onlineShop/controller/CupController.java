@@ -86,7 +86,7 @@ public class CupController implements CrudController<CupDto> {
                     content = @Content(schema=@Schema(implementation = CupDto.class)))
                     CupDto cupDto) {
         try {
-            CupDto updatedCup = service.create(cupDto);
+            CupDto updatedCup = service.update(cupDto);
             return ResponseEntity.ok(updatedCup);
         } catch (Exception e) {
             return entityHandler.responseEntityNotFound(e.getMessage());
