@@ -1,5 +1,9 @@
 package ua.teamchallenge.onlineShop.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,12 +21,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequiredArgsConstructor
 @RestController
 @CrossOrigin(
-        methods = {POST, GET, OPTIONS, PUT, DELETE, PATCH},
+        methods = {POST, GET, PUT, DELETE/*, PATCH, OPTIONS*/},
         maxAge = 3600,
         allowedHeaders = {"x-requested-with", "origin", "content-type", "accept"},
         origins = "*"
 )
-@Tag(   name = "Cups Service",
+@Tag(name = "Cups Service",
         description = "Provide crud operations for Cups")
 @RequestMapping("/api/cup")
 public class CupController implements CrudController<CupDto> {
@@ -30,6 +34,7 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @GetMapping("/get/all")
+    @Operation(summary = "Retrieve Cup list", description = "Find cups in DB")
     public ResponseEntity<?> getAll() {
         try {
             List<CupDto> cupList = service.findAll();
@@ -41,8 +46,11 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @GetMapping("/get")
-    public ResponseEntity<?> getById(@RequestParam("id") UUID id) {
-        System.err.println("UUID: "+id);
+    @Operation(summary = "Retrieve Cup", description = "Find Cup in DB by UUID")
+    public ResponseEntity<?> getById(
+            @RequestParam("id")
+            @Parameter(name = "id", description = "Cup identifier", example = "fcf12a8d-91e9-4bb6-b60b-53d6d97a9f44")
+                    UUID id) {
         try {
             CupDto cup = service.findById(id);
             return ResponseEntity.ok(cup);
@@ -53,7 +61,12 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody CupDto cupDto) {
+    @Operation(summary = "Create Cup", description = "Creates Cup in DB using Cup object without UUID")
+    public ResponseEntity<?> create(
+            @RequestBody
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Cup to add", required = true,
+                    content = @Content(schema=@Schema(implementation = CupDto.class)))
+                    CupDto cupDto) {
         try {
             CupDto createdCup = service.create(cupDto);
             return ResponseEntity.ok(createdCup);
@@ -65,7 +78,12 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @PostMapping("/update")
-    public ResponseEntity<?> update(@RequestBody  CupDto cupDto) {
+    @Operation(summary = "Update Cup", description = "Updates Cup in DB using Cup object with UUID")
+    public ResponseEntity<?> update(
+            @RequestBody
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Cup to update", required = true,
+                    content = @Content(schema=@Schema(implementation = CupDto.class)))
+                    CupDto cupDto) {
         try {
             CupDto updatedCup = service.create(cupDto);
             return ResponseEntity.ok(updatedCup);
@@ -76,7 +94,12 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @DeleteMapping("/delete")
-    public ResponseEntity<?> delete(@RequestBody  CupDto cupDto) {
+    @Operation(summary = "Delete Cup", description = "Removes Cup from DB using Cup object")
+    public ResponseEntity<?> delete(
+            @RequestBody
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Cup to remove", required = true,
+                    content = @Content(schema=@Schema(implementation = CupDto.class)))
+                    CupDto cupDto) {
         try {
             service.delete(cupDto);
             return ResponseEntity.ok().build();
@@ -87,7 +110,11 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @DeleteMapping("/delete/id")
-    public ResponseEntity<?> deleteById(@RequestParam("id") UUID id) {
+    @Operation(summary = "Delete Cup", description = "Removes Cup from DB using Cup UUID")
+    public ResponseEntity<?> deleteById(
+            @RequestParam("id")
+            @Parameter(name = "id", description = "Cup identifier", example = "fcf12a8d-91e9-4bb6-b60b-53d6d97a9f44")
+                    UUID id) {
         try {
             service.deleteById(id);
             return ResponseEntity.ok().build();
@@ -98,6 +125,7 @@ public class CupController implements CrudController<CupDto> {
 
     @Override
     @DeleteMapping("/delete/all")
+    @Operation(summary = "Delete all Cups", description = "Removes all Cups from DB")
     public ResponseEntity<?> deleteAll() {
         service.deleteAll();
         return ResponseEntity.ok().build();
