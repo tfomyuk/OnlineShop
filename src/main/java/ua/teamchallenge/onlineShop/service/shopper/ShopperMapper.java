@@ -14,6 +14,7 @@ public class ShopperMapper implements EntityMapper<ShopperDto, Shopper> {
                 shopper.getTextile(),
                 shopper.getHandles_length(),
                 shopper.getQuantity(),
+                shopper.getImage(),
                 shopper.getDescription()
         );
     }
@@ -27,6 +28,7 @@ public class ShopperMapper implements EntityMapper<ShopperDto, Shopper> {
                 shopperDto.getTextile(),
                 shopperDto.getHandles_length(),
                 shopperDto.getQuantity(),
+                shopperDto.getImage(),
                 shopperDto.getDescription());
     }
 }

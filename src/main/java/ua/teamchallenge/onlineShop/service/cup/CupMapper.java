@@ -18,6 +18,7 @@ public class CupMapper implements EntityMapper<CupDto, Cup> {
                 cup.getMaterial(),
                 cup.getCapacity(),
                 cup.getDiameter(),
+                cup.getImage(),
                 cup.getDescription()
         );
     }
@@ -35,6 +36,7 @@ public class CupMapper implements EntityMapper<CupDto, Cup> {
                 cupDto.getMaterial(),
                 cupDto.getCapacity(),
                 cupDto.getDiameter(),
+                cupDto.getImage(),
                 cupDto.getDescription()
         );
     }
