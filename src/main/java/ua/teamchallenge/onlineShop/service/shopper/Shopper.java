@@ -20,6 +20,7 @@ import java.util.UUID;
 | String			 | textile(Тканина)				  |	невибілена бавовна , бязь, 135 г/кв.м						|
 | int				 | handles_length(Довжина ручок)  |	60 см														|
 | int				 | quantity(Кількість в упаковці) |	50 шт.														|
+| String 			 | image(фото)					  |	http:\\img.server.com\some-image.jpg						|
 | String			 | description(Опис)			  |	Детальний опис											    |
 ---------------------------------------------------------------------------------------------------------------------
 */
@@ -60,6 +61,11 @@ public class Shopper implements Product {
     @Column(name = "quantity", nullable = false)
     @JdbcTypeCode(SqlTypes.INTEGER)
     private int quantity;
+
+    @Getter
+    @Column(name = "image", nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private String image;
 
     @Getter
     @Column(name = "description", nullable = false)
