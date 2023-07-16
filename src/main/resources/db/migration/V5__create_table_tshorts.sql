@@ -5,7 +5,7 @@ CREATE TABLE tshorts (
     density     INT,
     style       VARCHAR(255),
     size        VARCHAR(255),
-    quantity    INT,
+    quantity    VARCHAR(255),
     temperature INT,
     color       VARCHAR(255),
     image       VARCHAR(255),
