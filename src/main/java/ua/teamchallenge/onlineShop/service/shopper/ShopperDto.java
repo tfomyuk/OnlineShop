@@ -16,6 +16,7 @@ import java.util.UUID;
 | String			 | textile(Тканина)				  |	невибілена бавовна , бязь, 135 г/кв.м						|
 | int				 | handles_length(Довжина ручок)  |	60 см														|
 | int				 | quantity(Кількість в упаковці) |	50 шт.														|
+| String 			 | image(фото)					  |	http:\\img.server.com\some-image.jpg						|
 | String			 | description(Опис)			  |	Детальний опис											    |
 ---------------------------------------------------------------------------------------------------------------------
 */
@@ -29,5 +30,6 @@ public class ShopperDto implements Product {
     private String textile;
     private int handles_length;
     private int quantity;
+    private String image;
     private String description;
 }
